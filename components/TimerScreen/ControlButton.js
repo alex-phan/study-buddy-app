@@ -20,6 +20,9 @@ export default class ControlButton extends Component {
           <Pressable onPress={this.props.start}>
             <Text>Resume</Text>
           </Pressable>
+          <Pressable onPress={this.props.reset}>
+            <Text>Reset</Text>
+          </Pressable>
         </View>
       )
     } else {

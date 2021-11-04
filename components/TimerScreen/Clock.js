@@ -53,6 +53,14 @@ export default class Clock extends Component {
     })
   }
 
+  handleReset = () => {
+    clearInterval(this.clockInterval);
+    this.setState({
+      paused: false,
+      time: this.props.period * 60,
+    });
+  }
+
   render() {
     return (
       <View>
@@ -65,6 +73,7 @@ export default class Clock extends Component {
           start={this.handleStart}
           pause={this.handlePause}
           skip={this.handleSkip}
+          reset={this.handleReset}
         />
       </View>
     );
