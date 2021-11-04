@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import TimerScreen from '../screens/TimerScreen';
 import ProjectsScreen from '../screens/ProjectsScreen';
@@ -12,16 +13,29 @@ export default function Navigation() {
 
   return (
     <NavigationContainer >
-      <Tab.Navigator screenOptions={{
+      <Tab.Navigator screenOptions={({ route }) => ({
+        tabBarIcon: ({ size, color }) => {
+          let iconName;
+
+          if (route.name === "Pomodoro Timer") {
+            iconName = 'timer';
+          } else if (route.name === "Project Manager") {
+            iconName = 'archive';
+          } else if (route.name === "Learning Tools") {
+            iconName = 'cube';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />
+        },
         tabBarShowLabel: false,
         tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'grey',
+        tabBarActiveBackgroundColor: 'brown',
         tabBarInactiveBackgroundColor: '#921717',
-        tabBarStyle: {
-          backgroundColor: 'brown',
-        },
         tabBarHideOnKeyboard: true,
-      }}>
+      })}>
         <Tab.Screen name="Pomodoro Timer" component={TimerScreen} options={{
+          
           headerStyle: {
             backgroundColor: 'brown',
           },
