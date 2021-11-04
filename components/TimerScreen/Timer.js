@@ -8,11 +8,13 @@ export default class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // default value
+      // default values
       focusDuration: 25,
       shortDuration: 5,
       longDuration: 15,
+      longInterval: 4,
       timerType: "Focus",
+      pomoCount: 1, // starting value
     }
   }
 
@@ -30,12 +32,20 @@ export default class Timer extends Component {
   // switch to next timer
   handleNextTimer = () => {
     if (this.state.timerType === "Focus") {
-      this.setState({
-        timerType: "Short",
-      });
+      if (this.state.pomoCount === this.state.longInterval) {
+        this.setState({
+          timerType: "Long",
+          pomoCount: 0, // reset pomoCount
+        });
+      } else {
+        this.setState({
+          timerType: "Short",
+        });
+      }
     } else {
       this.setState({
         timerType: "Focus",
+        pomoCount: this.state.pomoCount + 1, // increase pomoCount after a break timer has elapsed
       });
     }
   }
