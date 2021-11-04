@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import TaskList from '../components/TasksScreen/TaskList';
+
 export default function ProjectsScreen() {
   return (
     <View style={styles.container}>
-      <Text>Projects</Text>
+      <TaskList />
     </View>
   );
 }

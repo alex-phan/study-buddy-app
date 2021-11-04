@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import TimerScreen from '../screens/TimerScreen';
-import ProjectsScreen from '../screens/ProjectsScreen';
+import TasksScreen from '../screens/TasksScreen';
 import ToolsScreen from '../screens/ToolsScreen';
 
 export default function Navigation() {
@@ -19,8 +19,8 @@ export default function Navigation() {
 
           if (route.name === "Pomodoro Timer") {
             iconName = 'timer';
-          } else if (route.name === "Project Manager") {
-            iconName = 'archive';
+          } else if (route.name === "Task Manager") {
+            iconName = 'list';
           } else if (route.name === "Learning Tools") {
             iconName = 'cube';
           }
@@ -43,7 +43,7 @@ export default function Navigation() {
             color: 'white',
           }
         }} />
-        <Tab.Screen name="Project Manager" component={ProjectsScreen} options={{
+        <Tab.Screen name="Task Manager" component={TasksScreen} options={{
           headerStyle: {
             backgroundColor: 'brown',
           },
