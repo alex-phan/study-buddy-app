@@ -9,6 +9,9 @@ export default class ControlButton extends Component {
           <Pressable onPress={this.props.pause}>
             <Text>Pause</Text>
           </Pressable>
+          <Pressable onPress={this.props.skip}>
+            <Text>Skip</Text>
+          </Pressable>
         </View>
       )
     } else if (this.props.paused) {

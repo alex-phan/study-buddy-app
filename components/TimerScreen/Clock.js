@@ -10,6 +10,7 @@ export default class Clock extends Component {
     this.state = {
       running: false,
       paused: false,
+      skipped: false,
       time: this.props.period * 60, // convert minutes to seconds
     }
   }
@@ -19,10 +20,11 @@ export default class Clock extends Component {
       this.setState({
         time: this.state.time - 1, // decrement seconds by one
       });
-      if (this.state.time < 1) {
+      if (this.state.time < 1 || this.state.skipped) {
         clearInterval(this.clockInterval);
         this.setState({
           running: false,
+          skipped: false,
           time: this.props.period * 60,
         });
       }
@@ -45,6 +47,12 @@ export default class Clock extends Component {
     });
   }
 
+  handleSkip = () => {
+    this.setState({
+      skipped: true,
+    })
+  }
+
   render() {
     return (
       <View>
@@ -56,6 +64,7 @@ export default class Clock extends Component {
           paused={this.state.paused}
           start={this.handleStart}
           pause={this.handlePause}
+          skip={this.handleSkip}
         />
       </View>
     );
