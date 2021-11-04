@@ -48,21 +48,64 @@ export default class Timer extends Component {
     }
   }
 
+  handleFocusDuration = (text) => {
+    if (text > 0) {
+      this.setState({
+        focusDuration: text,
+      });
+    }
+  }
+  
+  handleShortDuration = (text) => {
+    if (text > 0) {
+      this.setState({
+        shortDuration: text,
+      });
+    }
+  }
+
+  handleLongDuration = (text) => {
+    if (text > 0) {
+      this.setState({
+        longDuration: text,
+      });
+    }
+  }
+
+  handleLongInterval = (text) => {
+    if (text > 0) {
+      this.setState({
+        longInterval: text,
+      });
+    }
+  }
+
   render() {
     return (
       <View>
         <Text>Focus Duration</Text>
         <TextInput 
-          placeholder="How many minutes?"
           keyboardType="numeric"
           defaultValue={"" + this.state.focusDuration}
-          onChangeText={(text) => {
-            if (text > 0) {
-              this.setState({
-                focusDuration: text,
-              });
-            }
-          }}
+          onChangeText={this.handleFocusDuration}
+        />
+        <Text>Short Duration</Text>
+        <TextInput 
+          keyboardType="numeric"
+          defaultValue={"" + this.state.shortDuration}
+          onChangeText={this.handleShortDuration}
+        />
+        <Text>Long Duration</Text>
+        <TextInput 
+          keyboardType="numeric"
+          defaultValue={"" + this.state.longDuration}
+          onChangeText={this.handleLongDuration}
+        />
+        <Text>Long Interval</Text>
+        <TextInput 
+          keyboardType="numeric"
+          defaultValue={"" + this.state.longInterval}
+          onChangeText={this.handleLongInterval}
         />
 
         <Clock
