@@ -16,6 +16,14 @@ export default class Clock extends Component {
     }
   }
 
+  componentDidUpdate(previous) { // dynamically update timer as settings change
+    if (this.props.period !== previous.period) {
+      this.setState({
+        time: this.props.period * 60,
+      });
+    }
+  }
+
   handleCountdown = () => {
     this.clockInterval = setInterval(() => {
       this.setState({
