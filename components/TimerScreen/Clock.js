@@ -74,7 +74,7 @@ export default class Clock extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TimerTitle
           timerType={this.props.timerType}
         />
@@ -95,5 +95,9 @@ export default class Clock extends Component {
 }
 
 const styles = StyleSheet.create({
-  
+  container: {
+    position: 'absolute',
+    marginTop: '25%',
+    alignItems: 'center',
+  }
 });

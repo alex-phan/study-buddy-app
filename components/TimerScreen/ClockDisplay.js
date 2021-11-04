@@ -5,7 +5,7 @@ export default class ClockDisplay extends Component {
   render() {
     return (
       <View>
-        <Text>
+        <Text style={styles.clock}>
           {Math.floor(this.props.time / 60).toString().padStart(2, "0") +
           ":" +
           (this.props.time % 60).toString().padStart(2, "0")}
@@ -16,5 +16,7 @@ export default class ClockDisplay extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  clock: {
+    fontSize: 50,
+  }
 });

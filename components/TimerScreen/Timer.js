@@ -85,10 +85,12 @@ export default class Timer extends Component {
     return ( 
       <View style={styles.container}>
         <Clock
+          style={styles.timer}
           timerType={this.state.timerType}
           period={this.handleCurrentTimer()}
           complete={this.handleNextTimer}
         />
+
         <View style={styles.settings}>
           <Heading text="Timer Settings (mins)" />
           <View style={styles.duration}>
@@ -140,8 +142,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   settings: {
+    position: 'absolute',
+    marginTop: '95%',
     alignItems: 'center',
-    bottom: -150,
   },  
   duration: {
     flexDirection: 'row',
