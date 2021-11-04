@@ -17,6 +17,7 @@ export default class ClockDisplay extends Component {
 
 const styles = StyleSheet.create({
   clock: {
+    marginBottom: 5,
     fontSize: 50,
   }
 });
