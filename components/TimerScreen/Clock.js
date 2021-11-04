@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Vibration, StyleSheet, View } from 'react-native';
 
 import TimerTitle from './TimerTitle';
 import ClockDisplay from './ClockDisplay';
@@ -31,6 +31,7 @@ export default class Clock extends Component {
       });
       if (this.state.time < 1 || this.state.skipped) {
         clearInterval(this.clockInterval);
+        Vibration.vibrate([500, 500, 500])
         this.props.complete();
         this.setState({
           running: false,
