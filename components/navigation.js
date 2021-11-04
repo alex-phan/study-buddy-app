@@ -1,14 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-export default function navigation() {
+import TimerScreen from '../screens/TimerScreen';
+import ProjectsScreen from '../screens/ProjectsScreen';
+import ToolsScreen from '../screens/ToolsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+
+export default function Navigation() {
+  const Tab = createBottomTabNavigator();
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Timer" component={TimerScreen} />
+        <Tab.Screen name="Projects" component={ProjectsScreen} />
+        <Tab.Screen name="Tools" component={ToolsScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  
-});
