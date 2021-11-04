@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, KeyboardAvoidingView, ScrollView, TextInput, View, Platform } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, ScrollView, TextInput, Text, View, TouchableOpacity } from 'react-native';
 
 import Heading from '../Heading';
 import Task from './Task';
@@ -13,6 +13,12 @@ export default function TaskList() {
     addTask(null); // empties input area
   }
 
+  const handleDeleteTask = (index) => {
+    let itemsCopy = [...items];
+    itemsCopy.splice(index, 1);
+    addItems(itemsCopy);
+  }
+
   return (
     <View>
       <ScrollView contentContainerStyle={{ // for scrollable list
@@ -24,7 +30,14 @@ export default function TaskList() {
         <View style={styles.list}>
           {
             items.map((item, index) => {
-              return <Task key={index} text={item} />
+              return (
+                <TouchableOpacity
+                  style={styles.touchable}
+                  onPress={() => handleDeleteTask(index)}
+                >
+                  <Task key={index} text={item} />
+                </TouchableOpacity>
+              )
             })
           }
         </View>
@@ -63,5 +76,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     elevation: 2,
     textAlign: 'center',
-  }
+  },
+  touchable: {
+    width: '100%',
+    alignItems: 'center',
+  },
 });

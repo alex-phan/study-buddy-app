@@ -6,8 +6,8 @@ export default function Task(props) {
   return (
     <View style={styles.item}>
       <View style={styles.container}>
-        <Ionicons style={styles.checkbox} name="checkbox-outline" />
-        <Text style={styles.content}>{props.text}</Text>
+        <Ionicons style={styles.checkbox} name="checkbox" />
+        <Text>{props.text}</Text>
       </View>
     </View>
   );
@@ -29,5 +29,5 @@ const styles = StyleSheet.create({
   checkbox: {
     marginRight: 8,
     fontSize: 24,
-  }
+  },
 });
