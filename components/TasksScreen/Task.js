@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: 'white',
     borderRadius: 8,
-    elevation: 4,
+    elevation: 2,
   },
   container: {
     flexDirection: 'row',
