@@ -9,6 +9,7 @@ export default class Clock extends Component {
     super(props);
     this.state = {
       running: false,
+      paused: false,
       time: this.props.period * 60, // convert minutes to seconds
     }
   }
@@ -16,17 +17,28 @@ export default class Clock extends Component {
   handleStart = () => {
     this.setState({
       running: true,
+      paused: false,
     });
     this.clockInterval = setInterval(() => {
       this.setState({
         time: this.state.time - 1, // decrement seconds by one
       });
       if (this.state.time < 1) {
+        clearInterval(this.clockInterval);
         this.setState({
           running: false,
+          time: this.props.period * 60, // reset countdown
         });
       }
     }, 1000); // in milliseconds
+  }
+
+  handlePause = () => {
+    clearInterval(this.clockInterval);
+    this.setState({
+      running: false,
+      paused: true,
+    });
   }
 
   render() {
@@ -37,6 +49,7 @@ export default class Clock extends Component {
         />
         <ControlButton
           start={this.handleStart}
+          pause={this.handlePause}
         />
       </View>
     );
