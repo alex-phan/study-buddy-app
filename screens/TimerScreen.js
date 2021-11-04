@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import Timer from '../components/TimerScreen/Timer';
 
 export default function TimerScreen() {
   return (
     <View style={styles.container}>
-      <Text>Timer</Text>
+      <Timer />
     </View>
   );
 }
