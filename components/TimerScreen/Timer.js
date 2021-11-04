@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TextInput, Text, View } from 'react-native';
 
-import TimerTitle from './TimerTitle';
 import Clock from './Clock';
 
 export default class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // default values
       focusDuration: 25,
       shortDuration: 5,
       longDuration: 15,
       longInterval: 4,
-      timerType: "Focus",
+      timerType: "Focus", // starting timer
       pomoCount: 1, // starting value
     }
   }
@@ -29,13 +27,13 @@ export default class Timer extends Component {
     }
   }
 
-  // switch to next timer
+  // switch to the next timer
   handleNextTimer = () => {
     if (this.state.timerType === "Focus") {
       if (this.state.pomoCount === this.state.longInterval) {
         this.setState({
           timerType: "Long",
-          pomoCount: 0, // reset pomoCount
+          pomoCount: 0,
         });
       } else {
         this.setState({
@@ -45,20 +43,31 @@ export default class Timer extends Component {
     } else {
       this.setState({
         timerType: "Focus",
-        pomoCount: this.state.pomoCount + 1, // increase pomoCount after a break timer has elapsed
+        pomoCount: this.state.pomoCount + 1,
       });
     }
   }
 
   render() {
-    let time = this.handleCurrentTimer();
     return (
       <View>
-        <TimerTitle
-          timerType={this.state.timerType}
+        <Text>Focus Duration</Text>
+        <TextInput 
+          placeholder="How many minutes?"
+          keyboardType="numeric"
+          defaultValue={"" + this.state.focusDuration}
+          onChangeText={(text) => {
+            if (text > 0) {
+              this.setState({
+                focusDuration: text,
+              });
+            }
+          }}
         />
+
         <Clock
-          period={time}
+          timerType={this.state.timerType}
+          period={this.handleCurrentTimer()}
           complete={this.handleNextTimer}
         />
       </View>

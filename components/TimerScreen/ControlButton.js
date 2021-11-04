@@ -13,7 +13,7 @@ export default class ControlButton extends Component {
             <Text>Skip</Text>
           </Pressable>
         </View>
-      )
+      );
     } else if (this.props.paused) {
       return (
         <View>
@@ -24,7 +24,7 @@ export default class ControlButton extends Component {
             <Text>Reset</Text>
           </Pressable>
         </View>
-      )
+      );
     } else {
       return (
         <View>
@@ -32,7 +32,7 @@ export default class ControlButton extends Component {
             <Text>Start</Text>
           </Pressable>
         </View>
-      )
+      );
     }
   }
 }

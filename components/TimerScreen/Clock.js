@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import TimerTitle from './TimerTitle';
 import ClockDisplay from './ClockDisplay';
 import ControlButton from './ControlButton';
 
@@ -22,12 +23,12 @@ export default class Clock extends Component {
       });
       if (this.state.time < 1 || this.state.skipped) {
         clearInterval(this.clockInterval);
+        this.props.complete();
         this.setState({
           running: false,
           skipped: false,
           time: this.props.period * 60,
         });
-        this.props.complete();
       }
     }, 1000); // in milliseconds
   }
@@ -65,6 +66,9 @@ export default class Clock extends Component {
   render() {
     return (
       <View>
+        <TimerTitle
+          timerType={this.props.timerType}
+        />
         <ClockDisplay
           time={this.state.time}
         />

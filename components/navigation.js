@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TimerScreen from '../screens/TimerScreen';
 import ProjectsScreen from '../screens/ProjectsScreen';
 import ToolsScreen from '../screens/ToolsScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 
 export default function Navigation() {
   const Tab = createBottomTabNavigator();
@@ -15,7 +14,6 @@ export default function Navigation() {
         <Tab.Screen name="Timer" component={TimerScreen} />
         <Tab.Screen name="Projects" component={ProjectsScreen} />
         <Tab.Screen name="Tools" component={ToolsScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
