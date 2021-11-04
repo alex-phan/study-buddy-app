@@ -95,5 +95,5 @@ export default class Clock extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  
 });

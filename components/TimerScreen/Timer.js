@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, TextInput, Text, View } from 'react-native';
 
 import Clock from './Clock';
+import Heading from '../Heading';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -81,43 +82,80 @@ export default class Timer extends Component {
   }
 
   render() {
-    return (
-      <View>
-        <Text>Focus Duration</Text>
-        <TextInput 
-          keyboardType="numeric"
-          defaultValue={"" + this.state.focusDuration}
-          onChangeText={this.handleFocusDuration}
-        />
-        <Text>Short Duration</Text>
-        <TextInput 
-          keyboardType="numeric"
-          defaultValue={"" + this.state.shortDuration}
-          onChangeText={this.handleShortDuration}
-        />
-        <Text>Long Duration</Text>
-        <TextInput 
-          keyboardType="numeric"
-          defaultValue={"" + this.state.longDuration}
-          onChangeText={this.handleLongDuration}
-        />
-        <Text>Long Interval</Text>
-        <TextInput 
-          keyboardType="numeric"
-          defaultValue={"" + this.state.longInterval}
-          onChangeText={this.handleLongInterval}
-        />
-
+    return ( 
+      <View style={styles.container}>
         <Clock
           timerType={this.state.timerType}
           period={this.handleCurrentTimer()}
           complete={this.handleNextTimer}
         />
+        <View style={styles.settings}>
+          <Heading text="Timer Settings (mins)" />
+          <View style={styles.duration}>
+            <View style={styles.option}>
+              <Text style={styles.label}>Focus Duration</Text>
+              <TextInput 
+                style={styles.input}
+                keyboardType="numeric"
+                defaultValue={"" + this.state.focusDuration}
+                onChangeText={this.handleFocusDuration}
+              />
+            </View>
+            <View style={styles.option}>
+              <Text style={styles.label}>Short Duration</Text>
+              <TextInput
+                style={styles.input}
+                keyboardType="numeric"
+                defaultValue={"" + this.state.shortDuration}
+                onChangeText={this.handleShortDuration}
+              />
+            </View>
+            <View style={styles.option}>
+              <Text style={styles.label}>Long Duration</Text>
+              <TextInput 
+                style={styles.input}
+                keyboardType="numeric"
+                defaultValue={"" + this.state.longDuration}
+                onChangeText={this.handleLongDuration}
+              />
+            </View>
+          </View>
+          <View style={styles.option}>
+            <Text style={styles.label}>Long Interval</Text>
+            <TextInput 
+              style={styles.input}
+              keyboardType="numeric"
+              defaultValue={"" + this.state.longInterval}
+              onChangeText={this.handleLongInterval}
+            />
+          </View>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    alignItems: 'center',
+  },
+  settings: {
+    alignItems: 'center',
+    bottom: -150,
+  },  
+  duration: {
+    flexDirection: 'row',
+  },
+  option: {
+    margin: 10,
+  },
+  label: {
+    marginBottom: 2,
+  },
+  input: {
+    width: 100,
+    paddingLeft: 10,
+    backgroundColor: 'white',
+    borderRadius: 4,
+  },
 });
