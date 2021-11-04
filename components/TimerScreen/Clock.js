@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import ClockDisplay from './ClockDisplay';
 import ControlButton from './ControlButton';
@@ -14,11 +14,7 @@ export default class Clock extends Component {
     }
   }
 
-  handleStart = () => {
-    this.setState({
-      running: true,
-      paused: false,
-    });
+  handleCountdown = () => {
     this.clockInterval = setInterval(() => {
       this.setState({
         time: this.state.time - 1, // decrement seconds by one
@@ -27,10 +23,18 @@ export default class Clock extends Component {
         clearInterval(this.clockInterval);
         this.setState({
           running: false,
-          time: this.props.period * 60, // reset countdown
+          time: this.props.period * 60,
         });
       }
     }, 1000); // in milliseconds
+  }
+
+  handleStart = () => {
+    this.setState({
+      running: true,
+      paused: false,
+    });
+    this.handleCountdown();
   }
 
   handlePause = () => {
@@ -48,6 +52,8 @@ export default class Clock extends Component {
           time={this.state.time}
         />
         <ControlButton
+          running={this.state.running}
+          paused={this.state.paused}
           start={this.handleStart}
           pause={this.handlePause}
         />
@@ -55,3 +61,7 @@ export default class Clock extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+
+});
