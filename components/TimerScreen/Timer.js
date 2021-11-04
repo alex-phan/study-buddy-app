@@ -10,7 +10,19 @@ export default class Timer extends Component {
     this.state = {
       // default value
       focusDuration: 25,
+      shortDuration: 5,
+      longDuration: 15,
       timerType: "Focus",
+    }
+  }
+
+  handleCurrentTimer = () => {
+    if (this.state.timerType === "Focus") {
+      return this.state.focusDuration;
+    } else if (this.state.timerType === "Short") {
+      return this.state.shortDuration;
+    } else if (this.state.timerType === "Long") {
+      return this.state.longDuration;
     }
   }
 
@@ -21,7 +33,7 @@ export default class Timer extends Component {
           timerType={this.state.timerType}
         />
         <Clock
-          period={this.state.focusDuration}
+          period={this.handleCurrentTimer()}
         />
       </View>
     );
