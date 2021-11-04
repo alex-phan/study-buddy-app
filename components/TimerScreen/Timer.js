@@ -6,7 +6,7 @@ import Clock from './Clock';
 
 export default class Timer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       // default value
       focusDuration: 25,
