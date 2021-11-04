@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import TimerTitle from './TimerTitle';
 import Clock from './Clock';
 
 export default class Timer extends Component {
@@ -9,12 +10,16 @@ export default class Timer extends Component {
     this.state = {
       // default value
       focusDuration: 25,
+      timerType: "Focus",
     }
   }
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
+        <TimerTitle
+          timerType={this.state.timerType}
+        />
         <Clock
           period={this.state.focusDuration}
         />
@@ -24,5 +29,7 @@ export default class Timer extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    alignItems: 'center',
+  }
 });
