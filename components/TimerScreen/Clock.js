@@ -97,7 +97,11 @@ export default class Clock extends Component {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    marginTop: '25%',
+    margin: 30,
+    width: '85%',
+    padding: 12,
     alignItems: 'center',
+    backgroundColor: '#E5E5CC',
+    borderRadius: 12,
   }
 });

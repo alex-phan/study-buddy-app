@@ -23,8 +23,9 @@ export default function Heading(props) {
 
 const styles = StyleSheet.create({
   heading: {
+    margin: 10,
     fontFamily: 'Lobster_400Regular',
-    fontSize: 20,
+    fontSize: 30,
     color: 'brown',
   },
 });

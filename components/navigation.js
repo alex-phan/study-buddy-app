@@ -35,28 +35,33 @@ export default function Navigation() {
         tabBarHideOnKeyboard: true,
       })}>
         <Tab.Screen name="Pomodoro Timer" component={TimerScreen} options={{
-          
           headerStyle: {
-            backgroundColor: 'brown',
+            backgroundColor: 'beige',
+            borderBottomWidth: 1,
+            borderBottomColor: '#E5E5CC',
           },
           headerTitleStyle: {
-            color: 'white',
+            color: 'black',
           }
         }} />
         <Tab.Screen name="Task Manager" component={TasksScreen} options={{
           headerStyle: {
-            backgroundColor: 'brown',
+            backgroundColor: 'beige',
+            borderBottomWidth: 1,
+            borderBottomColor: '#E5E5CC',
           },
           headerTitleStyle: {
-            color: 'white',
+            color: 'black',
           }
         }} />
         <Tab.Screen name="Learning Tools" component={ToolsScreen} options={{
           headerStyle: {
-            backgroundColor: 'brown',
+            backgroundColor: 'beige',
+            borderBottomWidth: 1,
+            borderBottomColor: '#E5E5CC',
           },
           headerTitleStyle: {
-            color: 'white',
+            color: 'black',
           }
         }} />
       </Tab.Navigator>

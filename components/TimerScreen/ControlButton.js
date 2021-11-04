@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   control: {
-    margin: 12,
-    paddingTop: 12,
-    paddingBottom: 12,
+    margin: 10,
+    paddingTop: 16,
+    paddingBottom: 16,
     paddingLeft: 24,
     paddingRight: 24,
-    borderRadius: 10,
+    borderRadius: 24,
   },
   continue: {
     backgroundColor: 'green',

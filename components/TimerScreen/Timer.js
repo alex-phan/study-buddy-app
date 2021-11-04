@@ -92,7 +92,7 @@ export default class Timer extends Component {
         />
 
         <View style={styles.settings}>
-          <Heading text="Timer Settings (mins)" />
+          <Text style={styles.heading}>Timer Settings (mins)</Text>
           <View style={styles.duration}>
             <View style={styles.option}>
               <Text style={styles.label}>Focus Duration</Text>
@@ -141,9 +141,12 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
   },
+  heading: {
+    fontWeight: 'bold',
+  },
   settings: {
     position: 'absolute',
-    marginTop: '95%',
+    marginTop: '70%',
     alignItems: 'center',
   },  
   duration: {

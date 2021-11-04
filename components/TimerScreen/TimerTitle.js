@@ -35,8 +35,9 @@ export default function TimerTitle(props) {
 
 const styles = StyleSheet.create({
     title: {
+      marginBottom: 10,
       fontFamily: 'Lobster_400Regular',
-      fontSize: 40,
+      fontSize: 30,
       color: 'brown',
     }
 })
