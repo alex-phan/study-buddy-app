@@ -16,6 +16,7 @@ export default class Timer extends Component {
     }
   }
 
+  // pair timer type with set duration
   handleCurrentTimer = () => {
     if (this.state.timerType === "Focus") {
       return this.state.focusDuration;
@@ -26,14 +27,29 @@ export default class Timer extends Component {
     }
   }
 
+  // switch to next timer
+  handleNextTimer = () => {
+    if (this.state.timerType === "Focus") {
+      this.setState({
+        timerType: "Short",
+      });
+    } else {
+      this.setState({
+        timerType: "Focus",
+      });
+    }
+  }
+
   render() {
+    let time = this.handleCurrentTimer();
     return (
-      <View style={styles.container}>
+      <View>
         <TimerTitle
           timerType={this.state.timerType}
         />
         <Clock
-          period={this.handleCurrentTimer()}
+          period={time}
+          complete={this.handleNextTimer}
         />
       </View>
     );

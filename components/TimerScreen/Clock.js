@@ -27,6 +27,7 @@ export default class Clock extends Component {
           skipped: false,
           time: this.props.period * 60,
         });
+        this.props.complete();
       }
     }, 1000); // in milliseconds
   }
