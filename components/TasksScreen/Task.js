@@ -6,7 +6,10 @@ export default function Task(props) {
   return (
     <View style={styles.item}>
       <View style={styles.container}>
-        <Ionicons style={styles.checkbox} name="checkbox" />
+        <Ionicons
+            style={styles.checkbox}
+            name="square-outline"
+        />
         <Text>{props.text}</Text>
       </View>
     </View>
